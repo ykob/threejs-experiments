@@ -36,8 +36,17 @@ export class Cursor extends Mesh<PlaneGeometry, RawShaderMaterial> {
     const height = (rect.height / resolution.y) * coordAsPixel.y;
 
     this.scale.set(width, height, 1);
-    this.position.x = this.targetPosition.x;
-    this.position.y = this.targetPosition.y;
+
+    const direction = this.targetPosition.clone().sub(this.position);
+    const distance = direction.length();
+    const acceleration = 0.14;
+
+    if (distance >= 0.01) {
+      direction.normalize().multiplyScalar(distance * acceleration);
+      this.position.add(direction);
+      return;
+    }
+    this.position.copy(this.targetPosition);
   }
   setTarget(x: number, y: number) {
     this.targetPosition.set(x, y, 0);
