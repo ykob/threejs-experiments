@@ -43,9 +43,6 @@ const resize = async () => {
 const mouseMove = (x: number, y: number) => {
   pointer.x = (x / resolution.x) * 2 - 1;
   pointer.y = -(y / resolution.y) * 2 + 1;
-};
-
-const mouseEnter = () => {
   cursor.setTargetScale(1);
 };
 const mouseOut = () => {
@@ -95,7 +92,6 @@ const start = async () => {
   window.addEventListener('mousemove', (e) => {
     mouseMove(e.clientX, e.clientY);
   });
-  window.addEventListener('mouseover', mouseEnter);
   window.addEventListener('mouseout', mouseOut);
   toggleSketchUI();
 };

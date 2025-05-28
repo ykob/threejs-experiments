@@ -31,12 +31,7 @@ export class Cursor extends Mesh<PlaneGeometry, RawShaderMaterial> {
     this.element = element;
     this.scale.set(0, 0, 1);
   }
-  update(resolution: Vector2, camera: PerspectiveCamera) {
-    const coordAsPixel = getCoordAsPixel(camera, this.position);
-    const rect = this.element.getBoundingClientRect();
-    const width = (rect.width / resolution.x) * coordAsPixel.x;
-    const height = (rect.height / resolution.y) * coordAsPixel.y;
-
+  updatePosition() {
     const direction = this.targetPosition.clone().sub(this.position);
     const distance = direction.length();
     const acceleration = 0.14;
@@ -44,21 +39,31 @@ export class Cursor extends Mesh<PlaneGeometry, RawShaderMaterial> {
     if (distance >= 0.01) {
       direction.normalize().multiplyScalar(distance * acceleration);
       this.position.add(direction);
-    } else {
-      this.position.copy(this.targetPosition);
+      return;
     }
+    this.position.copy(this.targetPosition);
+  }
+  updateScale(resolution: Vector2, camera: PerspectiveCamera) {
+    const coordAsPixel = getCoordAsPixel(camera, this.position);
+    const rect = this.element.getBoundingClientRect();
+    const width = (rect.width / resolution.x) * coordAsPixel.x;
+    const height = (rect.height / resolution.y) * coordAsPixel.y;
+    const direction = this.targetScale.clone().sub(this.baseScale);
+    const distance = direction.length();
+    const acceleration = 0.32;
 
-    const directionScale = this.targetScale.clone().sub(this.baseScale);
-    const distanceScale = directionScale.length();
-
-    if (distanceScale >= 0.01) {
-      directionScale.normalize().multiplyScalar(distanceScale * acceleration);
-      this.baseScale.add(directionScale);
-    } else {
-      this.baseScale.copy(this.targetScale);
+    if (distance >= 0.01) {
+      direction.normalize().multiplyScalar(distance * acceleration);
+      this.baseScale.add(direction);
+      this.scale.set(width * this.baseScale.x, height * this.baseScale.y, 1);
+      return;
     }
-
+    this.baseScale.copy(this.targetScale);
     this.scale.set(width * this.baseScale.x, height * this.baseScale.y, 1);
+  }
+  update(resolution: Vector2, camera: PerspectiveCamera) {
+    this.updatePosition();
+    this.updateScale(resolution, camera);
   }
   setTargetPosition(x: number, y: number) {
     this.targetPosition.set(x, y, 0);
