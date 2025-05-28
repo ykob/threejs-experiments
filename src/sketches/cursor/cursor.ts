@@ -14,6 +14,8 @@ import vertexShader from './glsl/cursor.vs';
 export class Cursor extends Mesh<PlaneGeometry, RawShaderMaterial> {
   element: Element;
   targetPosition: Vector3 = new Vector3();
+  targetScale: Vector2 = new Vector2(0, 0);
+  baseScale: Vector2 = new Vector2(0, 0);
 
   constructor(element: Element) {
     super(
@@ -35,8 +37,6 @@ export class Cursor extends Mesh<PlaneGeometry, RawShaderMaterial> {
     const width = (rect.width / resolution.x) * coordAsPixel.x;
     const height = (rect.height / resolution.y) * coordAsPixel.y;
 
-    this.scale.set(width, height, 1);
-
     const direction = this.targetPosition.clone().sub(this.position);
     const distance = direction.length();
     const acceleration = 0.14;
@@ -44,11 +44,26 @@ export class Cursor extends Mesh<PlaneGeometry, RawShaderMaterial> {
     if (distance >= 0.01) {
       direction.normalize().multiplyScalar(distance * acceleration);
       this.position.add(direction);
-      return;
+    } else {
+      this.position.copy(this.targetPosition);
     }
-    this.position.copy(this.targetPosition);
+
+    const directionScale = this.targetScale.clone().sub(this.baseScale);
+    const distanceScale = directionScale.length();
+
+    if (distanceScale >= 0.01) {
+      directionScale.normalize().multiplyScalar(distanceScale * acceleration);
+      this.baseScale.add(directionScale);
+    } else {
+      this.baseScale.copy(this.targetScale);
+    }
+
+    this.scale.set(width * this.baseScale.x, height * this.baseScale.y, 1);
   }
-  setTarget(x: number, y: number) {
+  setTargetPosition(x: number, y: number) {
     this.targetPosition.set(x, y, 0);
+  }
+  setTargetScale(x: number) {
+    this.targetScale.set(x, x);
   }
 }

@@ -45,6 +45,13 @@ const mouseMove = (x: number, y: number) => {
   pointer.y = -(y / resolution.y) * 2 + 1;
 };
 
+const mouseEnter = () => {
+  cursor.setTargetScale(1);
+};
+const mouseOut = () => {
+  cursor.setTargetScale(0);
+};
+
 const update = () => {
   const delta = clock.getDelta();
 
@@ -55,7 +62,7 @@ const update = () => {
   if (intersects.length > 0) {
     const { x, y } = intersects[0].point;
 
-    cursor.setTarget(x, y);
+    cursor.setTargetPosition(x, y);
   }
   renderer.render(scene, camera);
   cursor.update(resolution, camera);
@@ -88,6 +95,8 @@ const start = async () => {
   window.addEventListener('mousemove', (e) => {
     mouseMove(e.clientX, e.clientY);
   });
+  window.addEventListener('mouseover', mouseEnter);
+  window.addEventListener('mouseout', mouseOut);
   toggleSketchUI();
 };
 
