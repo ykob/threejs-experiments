@@ -7,6 +7,13 @@
   <body>
     <div id="app">
       {{> sketch-header}}
+      <div class="content">
+        <p class="description">
+          Hover your mouse over this button,<br />
+          and the cursor will change.
+        </p>
+        <button class="button hover-trigger">Button</button>
+      </div>
       <div id="cursor" class="cursor"></div>
     </div>
     <script type="module" src="./index.ts"></script>

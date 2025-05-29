@@ -2,3 +2,17 @@
   width: 100px;
   height: 100px;
 }
+.content {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: grid;
+  place-content: center;
+  gap: 32px;
+}
+.description {
+  margin: 0;
+  line-height: 1.5;
+  letter-spacing: 0.06rem;
+  font-size: 1.5rem;
+}
