@@ -26,4 +26,16 @@
   border: none;
   cursor: pointer;
   letter-spacing: 0.12rem;
+  transition:
+    color 0.2s ease,
+    background-color 0.3s ease;
+}
+.button:hover {
+  color: #111;
+  background-color: #fff;
+}
+.button:active {
+  color: #111;
+  background-color: #eee;
+  transition-duration: 0.05s;
 }
