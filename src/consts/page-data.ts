@@ -9,7 +9,8 @@ export const pageData = [
     key: 'cursor',
     path: '/sketches/cursor/index.html',
     title: 'Cursor',
-    description: '',
+    description:
+      'A WebGL-based custom cursor that follows the standard cursor.',
     updated: '2025-05-DD',
   },
   {
