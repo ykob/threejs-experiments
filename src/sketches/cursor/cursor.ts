@@ -5,15 +5,15 @@ import {
   PlaneGeometry,
   RawShaderMaterial,
   Vector2,
-  Vector3,
 } from 'three';
 import { getCoordAsPixel } from '~/utils';
+import { SimpleAcceleratedMotion3 } from '~/utils/';
 import fragmentShader from './glsl/cursor.fs';
 import vertexShader from './glsl/cursor.vs';
 
 export class Cursor extends Mesh<PlaneGeometry, RawShaderMaterial> {
   element: Element;
-  targetPosition: Vector3 = new Vector3();
+  positionMotion: SimpleAcceleratedMotion3 = new SimpleAcceleratedMotion3();
   targetScale: Vector2 = new Vector2(0, 0);
   baseScale: Vector2 = new Vector2(0, 0);
 
@@ -32,16 +32,8 @@ export class Cursor extends Mesh<PlaneGeometry, RawShaderMaterial> {
     this.scale.set(0, 0, 1);
   }
   updatePosition() {
-    const direction = this.targetPosition.clone().sub(this.position);
-    const distance = direction.length();
-    const acceleration = 0.14;
-
-    if (distance >= 0.01) {
-      direction.normalize().multiplyScalar(distance * acceleration);
-      this.position.add(direction);
-      return;
-    }
-    this.position.copy(this.targetPosition);
+    this.positionMotion.update();
+    this.position.copy(this.positionMotion.velocity);
   }
   updateScale(resolution: Vector2, camera: PerspectiveCamera) {
     const coordAsPixel = getCoordAsPixel(camera, this.position);
@@ -66,7 +58,7 @@ export class Cursor extends Mesh<PlaneGeometry, RawShaderMaterial> {
     this.updateScale(resolution, camera);
   }
   setTargetPosition(x: number, y: number) {
-    this.targetPosition.set(x, y, 0);
+    this.positionMotion.setTarget(x, y, 0);
   }
   setTargetScale(x: number) {
     this.targetScale.set(x, x);
