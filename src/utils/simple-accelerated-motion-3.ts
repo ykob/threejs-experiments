@@ -18,7 +18,6 @@ export class SimpleAcceleratedMotion3 {
 
     if (distance < 0.01) {
       this.velocity.copy(this.target);
-      this.velocity.set(0, 0, 0);
       return;
     }
 
