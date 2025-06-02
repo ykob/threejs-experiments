@@ -40,10 +40,16 @@ const resize = async () => {
   collisionTarget.resize(camera);
 };
 
-const mouseMove = (x: number, y: number) => {
-  pointer.x = (x / resolution.x) * 2 - 1;
-  pointer.y = -(y / resolution.y) * 2 + 1;
-  cursor.setTargetScale(1);
+const mouseMove = (e: MouseEvent) => {
+  const { target, clientX, clientY } = e;
+
+  if (!target || !(target instanceof HTMLElement)) return;
+
+  const isHoverTrigger = target.classList.contains('hover-trigger');
+
+  cursor.setTargetScale(isHoverTrigger ? 3 : 1);
+  pointer.x = (clientX / resolution.x) * 2 - 1;
+  pointer.y = -(clientY / resolution.y) * 2 + 1;
 };
 const mouseOut = () => {
   cursor.setTargetScale(0);
@@ -89,9 +95,7 @@ const start = async () => {
   clock.start();
 
   window.addEventListener('resize', resize);
-  window.addEventListener('mousemove', (e) => {
-    mouseMove(e.clientX, e.clientY);
-  });
+  window.addEventListener('mousemove', mouseMove);
   window.addEventListener('mouseout', mouseOut);
   toggleSketchUI();
 };
