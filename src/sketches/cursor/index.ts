@@ -68,7 +68,7 @@ const update = () => {
     cursor.setTargetPosition(x, y);
   }
   renderer.render(scene, camera);
-  cursor.update(resolution, camera);
+  cursor.update(delta, resolution, camera);
   background.update(delta);
   requestAnimationFrame(update);
 };

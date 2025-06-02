@@ -21,6 +21,10 @@ export class Cursor extends Mesh<PlaneGeometry, RawShaderMaterial> {
     super(
       new PlaneGeometry(1, 1, 24, 24),
       new RawShaderMaterial({
+        uniforms: {
+          uTime: { value: 0 },
+          uScaleEdge: { value: 0 },
+        },
         transparent: true,
         vertexShader,
         fragmentShader,
@@ -53,7 +57,9 @@ export class Cursor extends Mesh<PlaneGeometry, RawShaderMaterial> {
     this.baseScale.copy(this.targetScale);
     this.scale.set(width * this.baseScale.x, height * this.baseScale.y, 1);
   }
-  update(resolution: Vector2, camera: PerspectiveCamera) {
+  update(delta: number, resolution: Vector2, camera: PerspectiveCamera) {
+    this.material.uniforms.uTime.value += delta;
+    this.material.uniforms.uScaleEdge.value = Math.min(this.baseScale.x - 1, 1);
     this.updatePosition();
     this.updateScale(resolution, camera);
   }
