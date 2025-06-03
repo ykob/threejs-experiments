@@ -1,6 +1,7 @@
 import {
   Clock,
   Raycaster,
+  RepeatWrapping,
   Scene,
   TextureLoader,
   Vector2,
@@ -81,11 +82,15 @@ const start = async () => {
   camera.lookAt(scene.position);
 
   const textures = await Promise.all([
+    textureLoader.loadAsync('/threejs-experiments/img/noise.jpg'),
     textureLoader.loadAsync('/threejs-experiments/img/noise_2x1.jpg'),
-    textureLoader.loadAsync('/threejs-experiments/img/confetti.png'),
   ]);
 
-  background.start(textures[0]);
+  textures[0].wrapS = RepeatWrapping;
+  textures[0].wrapT = RepeatWrapping;
+
+  background.start(textures[1]);
+  cursor.start(textures[0]);
   scene.add(cursor);
   scene.add(background);
   scene.add(collisionTarget);

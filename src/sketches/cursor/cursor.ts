@@ -4,6 +4,7 @@ import {
   PerspectiveCamera,
   PlaneGeometry,
   RawShaderMaterial,
+  Texture,
   Vector2,
 } from 'three';
 import { getCoordAsPixel } from '~/utils';
@@ -24,6 +25,7 @@ export class Cursor extends Mesh<PlaneGeometry, RawShaderMaterial> {
         uniforms: {
           uTime: { value: 0 },
           uSpread: { value: 0 },
+          uNoiseTexture: { value: null },
         },
         transparent: true,
         vertexShader,
@@ -34,6 +36,9 @@ export class Cursor extends Mesh<PlaneGeometry, RawShaderMaterial> {
 
     this.element = element;
     this.scale.set(0, 0, 1);
+  }
+  start(texture: Texture) {
+    this.material.uniforms.uNoiseTexture.value = texture;
   }
   updatePosition() {
     this.positionMotion.update();
