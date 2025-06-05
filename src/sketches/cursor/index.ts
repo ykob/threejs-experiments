@@ -15,6 +15,7 @@ import { Cursor } from './cursor';
 
 const app = document.getElementById('app');
 const canvas = document.createElement('canvas');
+const content = document.getElementById('content');
 const cursorElement = document.getElementById('cursor');
 const renderer = new WebGLRenderer({
   canvas,
@@ -75,7 +76,7 @@ const update = () => {
 };
 
 const start = async () => {
-  if (!app || !canvas) return;
+  if (!app || !canvas || !content) return;
 
   app.appendChild(canvas);
   renderer.setClearColor(0x000000, 1.0);
@@ -100,9 +101,15 @@ const start = async () => {
   clock.start();
 
   window.addEventListener('resize', resize);
+  toggleSketchUI();
+
+  if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+    content.style.display = 'none';
+    return;
+  }
+
   window.addEventListener('mousemove', mouseMove);
   window.addEventListener('mouseout', mouseOut);
-  toggleSketchUI();
 };
 
 start();
