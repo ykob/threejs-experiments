@@ -3,12 +3,15 @@
   height: 100px;
 }
 .content {
+  max-width: 640px;
   position: absolute;
   inset: 0;
+  margin: auto;
   z-index: 10;
   display: grid;
   place-content: center;
   gap: 32px;
+  padding: clamp(24px, 2vw, 48px);
 }
 .description {
   margin: 0;

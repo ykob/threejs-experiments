@@ -16,6 +16,9 @@ import { Cursor } from './cursor';
 const app = document.getElementById('app');
 const canvas = document.createElement('canvas');
 const content = document.getElementById('content');
+const contentForTouchDevice = document.getElementById(
+  'content-for-touch-device',
+);
 const cursorElement = document.getElementById('cursor');
 const renderer = new WebGLRenderer({
   canvas,
@@ -76,7 +79,7 @@ const update = () => {
 };
 
 const start = async () => {
-  if (!app || !canvas || !content) return;
+  if (!app || !canvas || !content || !contentForTouchDevice) return;
 
   app.appendChild(canvas);
   renderer.setClearColor(0x000000, 1.0);
@@ -108,6 +111,7 @@ const start = async () => {
     return;
   }
 
+  contentForTouchDevice.style.display = 'none';
   window.addEventListener('mousemove', mouseMove);
   window.addEventListener('mouseout', mouseOut);
 };
