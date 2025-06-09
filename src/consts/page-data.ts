@@ -11,7 +11,7 @@ export const pageData = [
     title: 'Cursor',
     description:
       'A WebGL-based custom cursor that follows the standard cursor.',
-    updated: '2025-05-DD',
+    updated: '2025-06-09',
   },
   {
     key: 'splash',
