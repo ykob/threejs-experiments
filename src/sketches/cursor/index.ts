@@ -92,6 +92,8 @@ const start = async () => {
 
   textures[0].wrapS = RepeatWrapping;
   textures[0].wrapT = RepeatWrapping;
+  textures[1].wrapS = RepeatWrapping;
+  textures[1].wrapT = RepeatWrapping;
 
   background.start(textures[1]);
   cursor.start(textures[0]);
