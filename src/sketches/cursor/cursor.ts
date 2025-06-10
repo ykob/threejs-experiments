@@ -15,8 +15,7 @@ import vertexShader from './glsl/cursor.vs';
 export class Cursor extends Mesh<PlaneGeometry, RawShaderMaterial> {
   element: Element;
   positionMotion: SimpleAcceleratedMotion3 = new SimpleAcceleratedMotion3();
-  targetScale: Vector2 = new Vector2(0, 0);
-  baseScale: Vector2 = new Vector2(0, 0);
+  scaleMotion: SimpleAcceleratedMotion3 = new SimpleAcceleratedMotion3();
 
   constructor(element: Element) {
     super(
@@ -49,22 +48,20 @@ export class Cursor extends Mesh<PlaneGeometry, RawShaderMaterial> {
     const rect = this.element.getBoundingClientRect();
     const width = (rect.width / resolution.x) * coordAsPixel.x;
     const height = (rect.height / resolution.y) * coordAsPixel.y;
-    const direction = this.targetScale.clone().sub(this.baseScale);
-    const distance = direction.length();
-    const acceleration = 0.32;
 
-    if (distance >= 0.01) {
-      direction.normalize().multiplyScalar(distance * acceleration);
-      this.baseScale.add(direction);
-      this.scale.set(width * this.baseScale.x, height * this.baseScale.y, 1);
-      return;
-    }
-    this.baseScale.copy(this.targetScale);
-    this.scale.set(width * this.baseScale.x, height * this.baseScale.y, 1);
+    this.scaleMotion.update();
+    this.scale.set(
+      width * this.scaleMotion.velocity.x,
+      height * this.scaleMotion.velocity.y,
+      1,
+    );
   }
   update(delta: number, resolution: Vector2, camera: PerspectiveCamera) {
     this.material.uniforms.uTime.value += delta;
-    this.material.uniforms.uSpread.value = Math.min(this.baseScale.x - 1, 1);
+    this.material.uniforms.uSpread.value = Math.min(
+      this.scaleMotion.velocity.x - 1,
+      1,
+    );
     this.updatePosition();
     this.updateScale(resolution, camera);
   }
@@ -72,6 +69,6 @@ export class Cursor extends Mesh<PlaneGeometry, RawShaderMaterial> {
     this.positionMotion.setTarget(x, y, 0);
   }
   setTargetScale(x: number) {
-    this.targetScale.set(x, x);
+    this.scaleMotion.setTarget(x, x, 0);
   }
 }
