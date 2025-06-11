@@ -3,7 +3,6 @@ import {
   IcosahedronGeometry,
   Mesh,
   RawShaderMaterial,
-  RepeatWrapping,
   Texture,
 } from 'three';
 import { radians } from '~/utils';
@@ -34,8 +33,6 @@ export class Bubble extends Mesh<IcosahedronGeometry, RawShaderMaterial> {
     this.time = 0;
   }
   start(texture: Texture) {
-    texture.wrapS = RepeatWrapping;
-    texture.wrapT = RepeatWrapping;
     this.material.uniforms.uNoiseTexture.value = texture;
   }
   update(time: number) {

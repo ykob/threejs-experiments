@@ -1,4 +1,10 @@
-import { Clock, Scene, TextureLoader, WebGLRenderer } from 'three';
+import {
+  Clock,
+  RepeatWrapping,
+  Scene,
+  TextureLoader,
+  WebGLRenderer,
+} from 'three';
 import { debounce } from '~/utils';
 import { toggleSketchUI } from '~/utils/';
 import { Background } from './background';
@@ -51,6 +57,8 @@ const start = async () => {
     '/threejs-experiments/img/noise.jpg',
   );
 
+  texture.wrapS = RepeatWrapping;
+  texture.wrapT = RepeatWrapping;
   bubbles.start(texture);
   background.start(texture);
 
