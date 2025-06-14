@@ -1,4 +1,11 @@
-import { Clock, Scene, TextureLoader, Vector2, WebGLRenderer } from 'three';
+import {
+  Clock,
+  RepeatWrapping,
+  Scene,
+  TextureLoader,
+  Vector2,
+  WebGLRenderer,
+} from 'three';
 import { toggleSketchUI } from '~/utils/';
 import { Background } from './background';
 import { Camera } from './camera';
@@ -48,6 +55,8 @@ const start = async () => {
     textureLoader.loadAsync('/threejs-experiments/img/confetti.png'),
   ]);
 
+  textures[0].wrapS = RepeatWrapping;
+  textures[0].wrapT = RepeatWrapping;
   background.start(textures[0]);
   confetti.start(textures[1]);
   scene.add(background);

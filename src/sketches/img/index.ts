@@ -67,6 +67,8 @@ const start = async () => {
   background.start(textures[1]);
   textures[0].wrapS = RepeatWrapping;
   textures[0].wrapT = RepeatWrapping;
+  textures[1].wrapS = RepeatWrapping;
+  textures[1].wrapT = RepeatWrapping;
 
   imageElements.forEach(async (element) => {
     const image = new Image(element);

@@ -3,7 +3,6 @@ import {
   IcosahedronGeometry,
   Mesh,
   RawShaderMaterial,
-  RepeatWrapping,
   Texture,
 } from 'three';
 import fragmentShader from './glsl/background.fs';
@@ -30,8 +29,6 @@ export class Background extends Mesh<IcosahedronGeometry, RawShaderMaterial> {
     this.time = 0;
   }
   start(texture: Texture) {
-    texture.wrapS = RepeatWrapping;
-    texture.wrapT = RepeatWrapping;
     this.material.uniforms.uNoiseTexture.value = texture;
   }
   update(time: number) {
