@@ -1,6 +1,7 @@
 import {
   Clock,
   Raycaster,
+  RepeatWrapping,
   Scene,
   TextureLoader,
   Vector2,
@@ -86,6 +87,9 @@ const start = async () => {
     textureLoader.loadAsync('/threejs-experiments/img/noise_2x1.jpg'),
     textureLoader.loadAsync('/threejs-experiments/img/confetti.png'),
   ]);
+
+  textures[0].wrapS = RepeatWrapping;
+  textures[0].wrapT = RepeatWrapping;
 
   background.start(textures[0]);
   confetti.start(textures[1]);
