@@ -28,8 +28,8 @@ importers:
         specifier: ^6.3.5
         version: 6.3.5
       vite-plugin-glsl:
-        specifier: ^1.4.2
-        version: 1.4.2(rollup@4.40.2)(vite@6.3.5)
+        specifier: ^1.5.0
+        version: 1.5.0(rollup@4.40.2)(vite@6.3.5)
       vite-plugin-handlebars:
         specifier: ^2.0.0
         version: 2.0.0
@@ -327,8 +327,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@rollup/pluginutils@5.1.4':
-    resolution: {integrity: sha512-USm05zrsFxYLPdWWq+K3STlWiT/3ELn3RcV5hJMghpeAIhxfsUIg6mt12CBJBInWMV4VneoV7SfGv8xIwo2qNQ==}
+  '@rollup/pluginutils@5.2.0':
+    resolution: {integrity: sha512-qWJ2ZTbmumwiLFomfzTyt5Kng4hwPi9rwCYN4SHb6eaRU1KNO4ccxINHr/VhH4GgPlt1XfSTLX2LBTme8ne4Zw==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       rollup: ^1.20.0||^2.0.0||^3.0.0||^4.0.0
@@ -561,8 +561,8 @@ packages:
     engines: {node: '>=0.8.0'}
     hasBin: true
 
-  vite-plugin-glsl@1.4.2:
-    resolution: {integrity: sha512-GQHx5tUPFna1zOrX9tbpSHLSVEv/wXZGPEey3Pk8ktHR/OJCEg82Vx2oE9d8mOeMhLfelrtpXg0TBD4riRs39Q==}
+  vite-plugin-glsl@1.5.0:
+    resolution: {integrity: sha512-hFUSXqSHcHLnz492o5jthfQukbyOAmJBuC1ZTLmwGrwtDoEmVT1IlDxcKGyXPaFqNl9kolFKoDY8mPJsMvKvQg==}
     engines: {node: '>= 20.17.0', npm: '>= 10.8.3'}
     peerDependencies:
       vite: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0
@@ -792,7 +792,7 @@ snapshots:
   '@esbuild/win32-x64@0.25.4':
     optional: true
 
-  '@rollup/pluginutils@5.1.4(rollup@4.40.2)':
+  '@rollup/pluginutils@5.2.0(rollup@4.40.2)':
     dependencies:
       '@types/estree': 1.0.8
       estree-walker: 2.0.2
@@ -1023,9 +1023,9 @@ snapshots:
   uglify-js@3.19.3:
     optional: true
 
-  vite-plugin-glsl@1.4.2(rollup@4.40.2)(vite@6.3.5):
+  vite-plugin-glsl@1.5.0(rollup@4.40.2)(vite@6.3.5):
     dependencies:
-      '@rollup/pluginutils': 5.1.4(rollup@4.40.2)
+      '@rollup/pluginutils': 5.2.0(rollup@4.40.2)
       vite: 6.3.5
     transitivePeerDependencies:
       - rollup
