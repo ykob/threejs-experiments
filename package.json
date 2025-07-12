@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "@types/three": "^0.178.0",
-    "prettier": "^3.5.3",
+    "prettier": "^3.6.2",
     "prettier-plugin-organize-imports": "^4.1.0",
     "typescript": "~5.8.3",
     "vite": "^7.0.4",
