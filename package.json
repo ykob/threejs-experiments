@@ -15,7 +15,7 @@
     "prettier": "^3.6.2",
     "prettier-plugin-organize-imports": "^4.1.0",
     "typescript": "~5.8.3",
-    "vite": "^7.0.5",
+    "vite": "^7.0.6",
     "vite-plugin-glsl": "^1.5.1",
     "vite-plugin-handlebars": "^2.0.0"
   },
