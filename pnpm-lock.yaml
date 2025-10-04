@@ -28,8 +28,8 @@ importers:
         specifier: ^7.1.9
         version: 7.1.9
       vite-plugin-glsl:
-        specifier: ^1.5.1
-        version: 1.5.1(rollup@4.52.4)(vite@7.1.9)
+        specifier: ^1.5.3
+        version: 1.5.3(@rollup/pluginutils@5.2.0(rollup@4.52.4))(esbuild@0.25.10)(vite@7.1.9)
       vite-plugin-handlebars:
         specifier: ^2.0.0
         version: 2.0.0
@@ -522,10 +522,6 @@ packages:
   picocolors@1.1.1:
     resolution: {integrity: sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==}
 
-  picomatch@4.0.2:
-    resolution: {integrity: sha512-M7BAV6Rlcy5u+m6oPhAPFgJTzAioX/6B0DxyvDlo9l8+T3nLKbrczg2WLUyzd45L8RqfUMyGPzekbMvX2Ldkwg==}
-    engines: {node: '>=12'}
-
   picomatch@4.0.3:
     resolution: {integrity: sha512-5gTmgEY/sqK6gFXLIsQNH19lWb4ebPDLA4SdLP7dsWkIXHWlG66oPuVvXSGFPppYZz8ZDZq0dYYrbHfBCVUb1Q==}
     engines: {node: '>=12'}
@@ -579,11 +575,18 @@ packages:
     engines: {node: '>=0.8.0'}
     hasBin: true
 
-  vite-plugin-glsl@1.5.1:
-    resolution: {integrity: sha512-kFI8rUItruG2Dfltyhr6tP3jlgCBGda2TnIvUodBHbpdQ7KT0NWyKpS1EqV47DoAl4woKzer7GWd1fiEvzf4nQ==}
+  vite-plugin-glsl@1.5.3:
+    resolution: {integrity: sha512-sVzALQs3GuBFBy8SQDF9YYjQd0aemzLAGiiGLr1uOC+sEOnisZQRpvS33ybwds7e2y2WkKWq3iBhZ13Y2c/r3A==}
     engines: {node: '>= 20.17.0', npm: '>= 10.8.3'}
     peerDependencies:
+      '@rollup/pluginutils': ^5.x
+      esbuild: '>= 0.25'
       vite: '>= 3.x'
+    peerDependenciesMeta:
+      '@rollup/pluginutils':
+        optional: true
+      esbuild:
+        optional: true
 
   vite-plugin-handlebars@2.0.0:
     resolution: {integrity: sha512-+J3It0nyhPzx4nT1I+fnWH+jShTEXzm6X0Tgsggdm9IYFD7/eJ6a3ROI13HTe0CVoyaxm/fPxH5HDAKyfz7T0g==}
@@ -817,9 +820,10 @@ snapshots:
     dependencies:
       '@types/estree': 1.0.8
       estree-walker: 2.0.2
-      picomatch: 4.0.2
+      picomatch: 4.0.3
     optionalDependencies:
       rollup: 4.52.4
+    optional: true
 
   '@rollup/rollup-android-arm-eabi@4.52.4':
     optional: true
@@ -962,7 +966,8 @@ snapshots:
       '@esbuild/win32-ia32': 0.25.10
       '@esbuild/win32-x64': 0.25.10
 
-  estree-walker@2.0.2: {}
+  estree-walker@2.0.2:
+    optional: true
 
   fdir@6.5.0(picomatch@4.0.3):
     optionalDependencies:
@@ -991,8 +996,6 @@ snapshots:
   neo-async@2.6.2: {}
 
   picocolors@1.1.1: {}
-
-  picomatch@4.0.2: {}
 
   picomatch@4.0.3: {}
 
@@ -1053,12 +1056,12 @@ snapshots:
   uglify-js@3.19.3:
     optional: true
 
-  vite-plugin-glsl@1.5.1(rollup@4.52.4)(vite@7.1.9):
+  vite-plugin-glsl@1.5.3(@rollup/pluginutils@5.2.0(rollup@4.52.4))(esbuild@0.25.10)(vite@7.1.9):
     dependencies:
-      '@rollup/pluginutils': 5.2.0(rollup@4.52.4)
       vite: 7.1.9
-    transitivePeerDependencies:
-      - rollup
+    optionalDependencies:
+      '@rollup/pluginutils': 5.2.0(rollup@4.52.4)
+      esbuild: 0.25.10
 
   vite-plugin-handlebars@2.0.0:
     dependencies:
