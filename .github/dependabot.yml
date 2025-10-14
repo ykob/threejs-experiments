@@ -14,6 +14,10 @@ updates:
       time: '09:00'
       timezone: 'Asia/Tokyo'
     groups:
+      eslint:
+        patterns:
+          - 'eslint'
+          - '@eslint/js'
       prettier:
         patterns:
           - 'prettier*'
