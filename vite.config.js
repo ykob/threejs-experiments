@@ -1,8 +1,11 @@
-import { resolve } from 'path';
+import { dirname, resolve } from 'path';
+import { fileURLToPath } from 'url';
 import { defineConfig } from 'vite';
 import glsl from 'vite-plugin-glsl';
 import handlebars from 'vite-plugin-handlebars';
 import { pageData } from './src/consts/';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // https://vitejs.dev/config/
 export default defineConfig({
