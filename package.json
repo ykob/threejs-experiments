@@ -22,7 +22,7 @@
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.46.1",
     "vite": "^7.1.9",
-    "vite-plugin-glsl": "^1.5.3",
+    "vite-plugin-glsl": "^1.5.4",
     "vite-plugin-handlebars": "^2.0.0"
   },
   "dependencies": {
