@@ -37,11 +37,11 @@ importers:
         specifier: ^8.48.1
         version: 8.48.1(eslint@9.39.1)(typescript@5.9.3)
       vite:
-        specifier: ^7.2.6
-        version: 7.2.6
+        specifier: ^7.2.7
+        version: 7.2.7
       vite-plugin-glsl:
         specifier: ^1.5.5
-        version: 1.5.5(@rollup/pluginutils@5.2.0(rollup@4.53.3))(esbuild@0.25.12)(vite@7.2.6)
+        version: 1.5.5(@rollup/pluginutils@5.2.0(rollup@4.53.3))(esbuild@0.25.12)(vite@7.2.7)
       vite-plugin-handlebars:
         specifier: ^2.0.0
         version: 2.0.0
@@ -1046,8 +1046,8 @@ packages:
       terser:
         optional: true
 
-  vite@7.2.6:
-    resolution: {integrity: sha512-tI2l/nFHC5rLh7+5+o7QjKjSR04ivXDF4jcgV0f/bTQ+OJiITy5S6gaynVsEM+7RqzufMnVbIon6Sr5x1SDYaQ==}
+  vite@7.2.7:
+    resolution: {integrity: sha512-ITcnkFeR3+fI8P1wMgItjGrR10170d8auB4EpMLPqmx6uxElH3a/hHGQabSHKdqd4FXWO1nFIp9rRn7JQ34ACQ==}
     engines: {node: ^20.19.0 || >=22.12.0}
     hasBin: true
     peerDependencies:
@@ -1927,9 +1927,9 @@ snapshots:
     dependencies:
       punycode: 2.3.1
 
-  vite-plugin-glsl@1.5.5(@rollup/pluginutils@5.2.0(rollup@4.53.3))(esbuild@0.25.12)(vite@7.2.6):
+  vite-plugin-glsl@1.5.5(@rollup/pluginutils@5.2.0(rollup@4.53.3))(esbuild@0.25.12)(vite@7.2.7):
     dependencies:
-      vite: 7.2.6
+      vite: 7.2.7
     optionalDependencies:
       '@rollup/pluginutils': 5.2.0(rollup@4.53.3)
       esbuild: 0.25.12
@@ -1956,7 +1956,7 @@ snapshots:
     optionalDependencies:
       fsevents: 2.3.3
 
-  vite@7.2.6:
+  vite@7.2.7:
     dependencies:
       esbuild: 0.25.12
       fdir: 6.5.0(picomatch@4.0.3)
