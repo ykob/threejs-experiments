@@ -23,4 +23,6 @@ pnpm dev
 
 # Build for production
 pnpm build
-```
+
+# Preview the production build
+pnpm preview
