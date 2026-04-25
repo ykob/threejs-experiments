@@ -23,7 +23,7 @@
     "typescript-eslint": "^8.58.2",
     "vite": "^8.0.10",
     "vite-plugin-glsl": "^1.6.0",
-    "vite-plugin-handlebars": "^2.0.0"
+    "vite-plugin-handlebars": "^2.0.3"
   },
   "dependencies": {
     "three": "^0.184.0"
