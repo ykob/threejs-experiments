@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@types/three": "^0.184.1",
+    "@types/three": "^0.185.0",
     "eslint": "^10.6.0",
     "globals": "^17.6.0",
     "prettier": "^3.9.4",
@@ -26,6 +26,6 @@
     "vite-plugin-handlebars": "^2.0.3"
   },
   "dependencies": {
-    "three": "^0.184.0"
+    "three": "^0.185.1"
   }
 }
