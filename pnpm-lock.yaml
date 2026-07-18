@@ -37,14 +37,14 @@ importers:
         specifier: ^8.64.0
         version: 8.64.0(eslint@10.7.0)(typescript@6.0.3)
       vite:
-        specifier: ^8.1.4
-        version: 8.1.4(esbuild@0.27.2)
+        specifier: ^8.1.5
+        version: 8.1.5(esbuild@0.27.2)
       vite-plugin-glsl:
         specifier: ^1.6.0
-        version: 1.6.0(@rollup/pluginutils@5.2.0(rollup@4.59.0))(esbuild@0.27.2)(vite@8.1.4(esbuild@0.27.2))
+        version: 1.6.0(@rollup/pluginutils@5.2.0(rollup@4.59.0))(esbuild@0.27.2)(vite@8.1.5(esbuild@0.27.2))
       vite-plugin-handlebars:
         specifier: ^2.0.3
-        version: 2.0.3(vite@8.1.4(esbuild@0.27.2))
+        version: 2.0.3(vite@8.1.5(esbuild@0.27.2))
 
 packages:
 
@@ -871,8 +871,8 @@ packages:
   ms@2.1.3:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
 
-  nanoid@3.3.15:
-    resolution: {integrity: sha512-y7Wygv/7mEOvxTuEQDB8StXdMRBWf1kR/tlhAzBRUFkB2jfcLOAxO/SHmOO2zgz1pVgK29/kyupn059/bCHdjA==}
+  nanoid@3.3.16:
+    resolution: {integrity: sha512-bzlKTyNJ7+LdGIIwy8ijFpIqEQIvafahV7eYykJ8Cvh42EdJeODoJ6gUJXpQJvej1BddH8OqTXZNE/KfbWAu8Q==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
@@ -909,8 +909,8 @@ packages:
     resolution: {integrity: sha512-RvwwcruNjI1ncT5xRakeyS9Lf8lcItv34KD+aif+VH9kduAyfYBipGh12274xtenIPZ119/R9BdTBa8gAwSh0A==}
     engines: {node: '>=12'}
 
-  postcss@8.5.16:
-    resolution: {integrity: sha512-vuwillviilfKZsg0VGj5R/YwwcHx4SLsIOI/7K6mQkWx+l5cUHTjj5g0AasTBcyXsbfTgrwsUNmVUb5xVwyPwg==}
+  postcss@8.5.19:
+    resolution: {integrity: sha512-Mz8SaolMd8nB+G13WkORcxQKHZ/NE4xXevtkJHVuG+guo9/wYKlIMTKAqGdEmYOXR2ijPjTYNHssizdaVSUNdQ==}
     engines: {node: ^10 || ^12 || >=14}
 
   prelude-ls@1.2.1:
@@ -1025,8 +1025,8 @@ packages:
     peerDependencies:
       vite: ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
 
-  vite@8.1.4:
-    resolution: {integrity: sha512-bTT9PsdWO+MQMNG9ZXIP/qM9wGh37DFxTV/sPq9cFpHr3w4jkgef032PkAL9jAqhk3Nz8NQw3O8n6/xFkqO4QQ==}
+  vite@8.1.5:
+    resolution: {integrity: sha512-7ULLwsCdYx/nRyrpiEwvqb5TFHrMVZyBt+rg/OAXT7rgj/z+DtTDyKFeLAdDkubDVDKD8jOsndmy7m55XcfUsw==}
     engines: {node: ^20.19.0 || >=22.12.0}
     hasBin: true
     peerDependencies:
@@ -1766,7 +1766,7 @@ snapshots:
 
   ms@2.1.3: {}
 
-  nanoid@3.3.15: {}
+  nanoid@3.3.16: {}
 
   natural-compare@1.4.0: {}
 
@@ -1797,9 +1797,9 @@ snapshots:
 
   picomatch@4.0.5: {}
 
-  postcss@8.5.16:
+  postcss@8.5.19:
     dependencies:
-      nanoid: 3.3.15
+      nanoid: 3.3.16
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
@@ -1917,23 +1917,23 @@ snapshots:
     dependencies:
       punycode: 2.3.1
 
-  vite-plugin-glsl@1.6.0(@rollup/pluginutils@5.2.0(rollup@4.59.0))(esbuild@0.27.2)(vite@8.1.4(esbuild@0.27.2)):
+  vite-plugin-glsl@1.6.0(@rollup/pluginutils@5.2.0(rollup@4.59.0))(esbuild@0.27.2)(vite@8.1.5(esbuild@0.27.2)):
     dependencies:
-      vite: 8.1.4(esbuild@0.27.2)
+      vite: 8.1.5(esbuild@0.27.2)
     optionalDependencies:
       '@rollup/pluginutils': 5.2.0(rollup@4.59.0)
       esbuild: 0.27.2
 
-  vite-plugin-handlebars@2.0.3(vite@8.1.4(esbuild@0.27.2)):
+  vite-plugin-handlebars@2.0.3(vite@8.1.5(esbuild@0.27.2)):
     dependencies:
       handlebars: 4.7.9
-      vite: 8.1.4(esbuild@0.27.2)
+      vite: 8.1.5(esbuild@0.27.2)
 
-  vite@8.1.4(esbuild@0.27.2):
+  vite@8.1.5(esbuild@0.27.2):
     dependencies:
       lightningcss: 1.32.0
       picomatch: 4.0.5
-      postcss: 8.5.16
+      postcss: 8.5.19
       rolldown: 1.1.5
       tinyglobby: 0.2.17
     optionalDependencies:
