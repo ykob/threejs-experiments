@@ -26,6 +26,6 @@
     "vite-plugin-handlebars": "^2.0.3"
   },
   "dependencies": {
-    "three": "^0.185.1"
+    "three": "^0.186.0"
   }
 }
