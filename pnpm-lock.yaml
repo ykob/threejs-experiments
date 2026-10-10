@@ -40,8 +40,8 @@ importers:
         specifier: ^8.3.1
         version: 8.3.1(esbuild@0.27.2)
       vite-plugin-glsl:
-        specifier: ^1.6.1
-        version: 1.6.1(@rollup/pluginutils@5.2.0(rollup@4.59.0))(esbuild@0.27.2)(vite@8.3.1(esbuild@0.27.2))
+        specifier: ^1.6.2
+        version: 1.6.2(@rollup/pluginutils@5.2.0(rollup@4.59.0))(esbuild@0.27.2)(vite@8.3.1(esbuild@0.27.2))
       vite-plugin-handlebars:
         specifier: ^2.0.3
         version: 2.0.3(vite@8.3.1(esbuild@0.27.2))
@@ -1037,8 +1037,8 @@ packages:
   uri-js@4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
 
-  vite-plugin-glsl@1.6.1:
-    resolution: {integrity: sha512-0Ro2lUmDdwWkoAc+dhJ7fXO/2n6JthkzbCqW0/bvlU4R6kXjbpSqNJYfbIilFu9L/HApiXOZ8IExmlz59qzH8Q==}
+  vite-plugin-glsl@1.6.2:
+    resolution: {integrity: sha512-/WSsBiKg6HcBXutxtynJ9CBJImv4m6Fa3bAGLCQXeSgboiH1VVjL3ok42MeGIpc4NzOKFa1F0s+09J03M+jepw==}
     engines: {node: '>= 20.17.0', npm: '>= 10.8.3'}
     peerDependencies:
       '@rollup/pluginutils': ^5.x
@@ -1951,7 +1951,7 @@ snapshots:
     dependencies:
       punycode: 2.3.1
 
-  vite-plugin-glsl@1.6.1(@rollup/pluginutils@5.2.0(rollup@4.59.0))(esbuild@0.27.2)(vite@8.3.1(esbuild@0.27.2)):
+  vite-plugin-glsl@1.6.2(@rollup/pluginutils@5.2.0(rollup@4.59.0))(esbuild@0.27.2)(vite@8.3.1(esbuild@0.27.2)):
     dependencies:
       vite: 8.3.1(esbuild@0.27.2)
     optionalDependencies:
